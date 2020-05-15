@@ -16,12 +16,92 @@
   <main>
     <a class="back" href="index.html">Back</a>
     <section id="description">
-      <h2>Hidde de Vries</h2>
-      <p>
-        .....
-      </p>
-      
-
+      <h2>The web is ready for a great graphic designer.</h2>
+      <h3>by Hidde de Vries</h3>
+      <p>Hidde de Vries is a front-end developer who works at the World Wide Web Consortium (W3C). W3C is an international community that develops open standards to ensure the long-term growth of the Web. Hidde invents and develops new web techniques that must be available for multiple browsers. As a front-end web developer he specialize in HTML, CSS, JavaScript, living style guides and accessibility for everyone.</p>
+      <h3>Modernism in graphic design</h3>
+      <p>Where function is above form (beauty). And Asymmetric alignment is effective. Each problem has its own solution. Modernism is pretty rule-based, like the web, and it is a movement that responded to industrialisation.</p>
+      <p>Inspiration for current web design comes from Modernism. Websites nowadays look a lot alike. It feels like everyone uses the same template. That's why I regret that we almost always don't dare to design something outside of that fixed template. The web is a responsive medium and there is so much more we can do with it. Logos are a good example of how we design nowadays, many companies used to use graceful letters, now they have often become simple letters. Jan Tschichold ( one of the great modernist graphic designers) wrote the book: De Neue typography. Shows that by making effective use of different letter weights and sizes, the information could be transferred quickly and easily.</p>
+      <h3>Grid and flexbox</h3>
+      <p>Why is using grids effective?</p>
+      <p>Müller-Brockmann explains in his book over grids why we'd want grids in the first place. He explains that if you have a bunch of content that needs to go into a layout, a grid can give solutions that are functional, logical, and just look better. When a grid is applied to it, a surface can more easily be organised in a way that is rational.</p>
+      <img src="images/muller-brockmann.png" alt="book about grid from Muller-brockmann">
+      <p>Something that we see the great graphic designers do a lot, is to use mathematical proportions to lay things out. Both flexbox and Grid Layout let us do this. Neither is better than the other. Flexbox lets us layout things from items, Grid Layout from the container.</p>
+      <pre>
+        <code>
+        .container{ 
+          display: flex; 
+        }
+        .item-1{
+          flex: 2;
+        } 
+        .item-2 {
+          flex: 1;
+        }
+        </code>
+      </pre>
+      <img src="images/flexbox.png" alt="flexbox example">
+      <pre>
+        <code>
+          .container{
+            display: grid; 
+            grid-template-columns: 1fr, 3fr, 2fr, 1fr;.
+          }
+        </code>
+      </pre>
+      <img src="images/grid.png" alt="grid example">
+      <h3>Take away</h3>
+      <ul>
+        <li>
+          Leave maths to the browser.<br>
+          For examples: <br>
+          <pre>
+            <code>
+            .container{ 
+              display: flex; 
+            }
+            .item-1{
+              flex: 2;
+            } 
+            .item-2 {
+              flex: 1;
+            }
+            </code>
+          </pre>
+          <pre>
+            <code>
+              .container{
+                display: grid; 
+                grid-template-columns: 1fr, 3fr, 2fr, 1fr;.
+              }
+            </code>
+          </pre>
+        </li>
+        <li>Use vh  and vw units so you can design for each device screen.</li>
+        <li>Use z-index to overlap the content.</li>
+        <li>
+          Check of the browser supports grid
+          <pre>
+            <code> 
+              @supports(display: grid){
+                  body {
+                        display: grid
+                  }
+                }                 
+            </code>
+          </pre>
+          don't forget to write a fallback style for the browser that does not supports grid and your fallback has to be as simple as possible
+        </li>
+        <li>Consulting is better than having bugs.</li>
+        <li>Stick to the standards of the web.</li>
+        <li>
+          Embrace the flexibility of the web.<br>
+          For example:<br>
+          - 50c which means 50 characters <br>
+          - minmax(... , ...) between two values
+        </li>
+        <li>The web is interactive so make use of it.</li>
+      </ul>
     <footer>
        MIT © Mohamad Al Ghorani.
     </footer>
