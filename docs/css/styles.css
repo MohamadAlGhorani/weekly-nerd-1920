@@ -1,7 +1,7 @@
 :root {
   --dark: #000;
   --course: #00CD84;
-  --light: #fff;
+  --light: rgb(179, 178, 178);
 }
 
 pre code {
@@ -10,6 +10,7 @@ pre code {
   color: grey;
   display: block;
   padding: 20px;
+  padding-left: 0;
 }
 
 body {
@@ -22,7 +23,7 @@ body {
 }
 
 main {
-  max-width: 800px;
+  max-width: 900px;
   margin: 10vh auto;
 }
 

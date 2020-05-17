@@ -62,54 +62,58 @@
     </p>
     <p>Also, create a file directly in your project folder and name it server.js this will be your server javascript file. And write the following code in it to set up the server and Socket.io.</p>
     <pre>
-      <code>
-        const express = require("express");
-        const app = express();
-        const http = require("http").createServer(app);
-        const io = require("socket.io")(http);
-        
-        const config = {
-          port: process.env.PORT || 3000,
-        };
-        
-        app
-          .set("view engine", "ejs")
-          .set("views", "views")
-          .use(express.static("static"))
-        
-          .get("/", function (req, res) {
-              res.render("home", {});
-          });
-        
-        io.on("connection", function (socket) {
-        
-        });
-        
-        http.listen(config, function () {
-          console.log("listening on *:3000");
-        });
-      </code>
+    <code>
+    const express = require("express");
+    const app = express();
+    const http = require("http").createServer(app);
+    const io = require("socket.io")(http);
+    
+    const config = {
+      port: process.env.PORT || 3000,
+    };
+    
+    app
+      .set("view engine", "ejs")
+      .set("views", "views")
+      .use(express.static("static"))
+    
+      .get("/", function (req, res) {
+          res.render("home", {});
+      });
+    
+    io.on("connection", function (socket) {
+    
+    });
+    
+    http.listen(config, function () {
+      console.log("listening on *:3000");
+    });
+    </code>
     </pre>
     <p>After that open the file index.js that you have made in the static folder. Then add this code to it. This will allow you to use Socket from the client to send events to the server. </p>
     <pre>
-      <code>
-        var socket = io();
-      </code>
+    <code>
+    var socket = io();
+    </code>
     </pre>
     <p>Open your home.ejs, and add the following code before the body closing tag /body. This script is a link to the Socket.io library. </p>
-    <pre><code> script src="/socket.io/socket.io.js"  /script </code></pre>
+    <pre>
+    <code>
+    <span><</span>script src="/socket.io/socket.io.js"><span><</span>/script>
+    </code>
+    </pre>
     <p>Then open your package.json file and add this code  "start": "node server.js" to the “Scripts” section (see the code below). You will need to add this code, so when you write npm start in your terminal your server.js will fire on http://localhost:3000/</p>
     <pre>
-      <code>
-        "scripts": {
-          "test": "echo \"Error: no test specified\" && exit 1",
-          "start": "node server.js"
-        },       
-      </code>
+    <code>
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "node server.js"
+    },       
+    </code>
     </pre>
     <p>Those are all the setups you need to follow, in order to use socket.io, Node.js, and Express.js. Now you are ready to write your own code and create your real-time application.</p>
     <p>
-      If you think this is a lot, don't worry I have already made the project folder. All you need to do is download it <a href="Real-Time_web_application.zip">project folder</a> and follow the steps below. 
+      If you think this is a lot, don't worry I have already made the project folder. All you need to do is download it <a href="downloadable-files/Real-Time_web_application.zip">project folder</a> and follow the steps below. 
     </p>
     <ol>
       <li>First, open your code editor and open the project folder.</li>
