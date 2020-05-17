@@ -15,16 +15,118 @@
   </header>
   <main>
     <a class="back" href="index.html">Back</a>
-    <section id="description">
-      <h2>Second article</h2>
-      <p>
-        .....
-      </p>
-      
-
-    <footer>
-       MIT © Mohamad Al Ghorani.
-    </footer>
+    <h2>Real-Time Web Applications</h2>
+    <h3>Using Node.js, ExpressJS, and Socket.io</h3>
+    <h3>What are real time web applications? </h3>
+    <p>
+    A real-time web app is an app in which information is almost immediately sent between users and the server, and by extension between users and other users. This is in contrast to traditional web apps where users have to request information from the server. 
+    So what characterizes a real-time web app is the ability to have a constant flow of communication with all its users. In this way the user can be informed in real-time of any changes on the server (often caused by other users).        
+    </p>
+    <h3>When to use a real time web?</h3>
+    <p>Real-time web applications can be used when you need to connect users with each other in real-time. Or when you need to transform information almost simultaneously between users and the server.
+    Examples:
+    </p>
+    <ul>
+    <li>All web messaging services are an example of a real-time web app, where the message is sent and received by users in real-time. </li>
+    <li>Online multiplayer games are also real-time apps, where users are constantly aware and up to date of what is on the server. </li>
+    </ul>
+    <h3>What do you need to start building a real time web application</h3>
+    <p>If you want to build a real-time web application you have to use a few web technologies that allow you to do that. In my case, I used Node.js, Express.js, and Socket.io. So what are these technologies and why did I use them?</p>
+    <h4>Node.js</h4>
+    <p>Node.js is a framework that allows you to build server-side programs with JavaScript. It is fairly easy to get started with Node.js when you have at least a basic understanding and knowledge of fundamental JavaScript concepts, such as variables, loops, functions, etc. Node.js allows those who are familiar with JavaScript as a tool for front-end development to quickly jump into server-side work (back-end).</p>
+    <h4>Express.js</h4>
+    <p>ExpressJS is a library for Node.js that simplifies HyperText Transfer Protocol (HTTP) methods. HTTP is the method used for transferring files between servers and clients. The primary methods of HTTP are: Get, Post, Put, and Delete. Express.js makes these methods easy to engage and manipulate via JavaScript in Node.js.</p>
+    <h4>Socket.io</h4>
+    <p>Socket.io is also a Node.js library. This library makes it possible to create connections between clients, and between clients and the server using the Web Socket API.</p>
+    <h3>Building a real time web application </h3>
+    <p>
+      First, you need to install Node.js on your device from <a target="_blank" href="https://nodejs.org/en/">Node.js</a> if you don't have it. Then open your favorite code editor. If you don't have one I recommend visual studio code download from <a target="_blank" href="https://code.visualstudio.com/">Visual Studio code</a>.
+      Open the terminal if you are using a MacBook or open your command line language on your Windows device. To navigate to the folder where you want to save the project, type in your terminal the following.
+      `cd desktop/my-folder`
+    </p>
+    <p>
+      When you have done all the steps above, you are now almost ready to rock and roll.
+      Type `npm init` in your terminal and start answering the questions that appear, to set up your project.
+    </p>
+    <p>
+      Then type ` npm install express` in your terminal to install the express server. 
+      After that install socket.io `npm install socket.io`. You need Socket.io to send events from the clients to the server and from the server to the clients.
+    </p>
+    <p>Then you will need to install Embedded JavaScript Templates (ejs). 'npm install ejs`.  Ejs is the view engine that you are going to use to write your HTML. You need to do this because you have a server and therefore you need a template engine to serve the HTML.</p>
+    <p>
+      You now need to create a folder named “views” in your project folder, inside that folder you are going to create your first HTML page using ejs. Create home.ejs.
+      Ejs makes it possible to send information directly from the server to the HTML.
+    </p>
+    <p>
+      Then create a folder in your project folder and name it static. In that folder, you will need to create two files one is styles.css and the other is index.js. These files will be on the client-side.
+    </p>
+    <p>Also, create a file directly in your project folder and name it server.js this will be your server javascript file. And write the following code in it to set up the server and Socket.io.</p>
+    <pre>
+      <code>
+        const express = require("express");
+        const app = express();
+        const http = require("http").createServer(app);
+        const io = require("socket.io")(http);
+        
+        const config = {
+          port: process.env.PORT || 3000,
+        };
+        
+        app
+          .set("view engine", "ejs")
+          .set("views", "views")
+          .use(express.static("static"))
+        
+          .get("/", function (req, res) {
+              res.render("home", {});
+          });
+        
+        io.on("connection", function (socket) {
+        
+        });
+        
+        http.listen(config, function () {
+          console.log("listening on *:3000");
+        });
+      </code>
+    </pre>
+    <p>After that open the file index.js that you have made in the static folder. Then add this code to it. This will allow you to use Socket from the client to send events to the server. </p>
+    <pre>
+      <code>
+        var socket = io();
+      </code>
+    </pre>
+    <p>Open your home.ejs, and add the following code before the body closing tag /body. This script is a link to the Socket.io library. </p>
+    <pre><code> script src="/socket.io/socket.io.js"  /script </code></pre>
+    <p>Then open your package.json file and add this code  "start": "node server.js" to the “Scripts” section (see the code below). You will need to add this code, so when you write npm start in your terminal your server.js will fire on http://localhost:3000/</p>
+    <pre>
+      <code>
+        "scripts": {
+          "test": "echo \"Error: no test specified\" && exit 1",
+          "start": "node server.js"
+        },       
+      </code>
+    </pre>
+    <p>Those are all the setups you need to follow, in order to use socket.io, Node.js, and Express.js. Now you are ready to write your own code and create your real-time application.</p>
+    <p>
+      If you think this is a lot, don't worry I have already made the project folder. All you need to do is download it <a href="Real-Time_web_application.zip">project folder</a> and follow the steps below. 
+    </p>
+    <ol>
+      <li>First, open your code editor and open the project folder.</li>
+      <li>Then open your terminal and navigate to the folder <br> `cd Desktop/folder-name`</li>
+      <li>Type `npm install` to install all of the dependencies.</li>
+      <li>After that type `npm start` to start the project on http://localhost:3000/</li>
+    </ol>
+    <p>The Socket.io documentation can help you get started with your project and learn how you can send events between the server and the clients <a target="_blank" href="https://socket.io/docs/">Socket.io</a>.</p>
+    <p>When you are done you can always deploy your app online in my case I used Heroku to deploy my application. <a href="https://dashboard.heroku.com">Heroku</a></p>
+    <p>
+      To see how everything works together check my application that I have made. 
+      <a target="_blank" href="https://github.com/MohamadAlGhorani/real-time-web-1920">Party 2020</a>
+    </p>
+    <p>Extra tutorial to understand what i have explained <a target="_blank" href="https://www.youtube.com/watch?v=UymGJnv-WsE">Tutorial</a></p>
   </main>
+  <footer>
+      MIT © Mohamad Al Ghorani.
+  </footer>
 </body>
 </html>
