@@ -106,7 +106,7 @@
       <p>After that, you are going to select the video container to create a canvas and append this canvas to the video container. This canvas will be used to visualize all the detections from a person's face. To do that you are going to add an eventListener to the video element that will fire when the video starts (play). In this eventListener, you will be detecting all of the available faces that are in front of the webcam. This will happen in an interval of 100 ms. So when you want to see all of the face detection results, you will find them in the const detections. You can console log it and build whatever you want with is. In my case, I will be using the results of age, gender, and emotions.</p>
       <pre>
       <code>
-      var videoContainer = document.querySelector(".video-container");
+      var videoContainer =document.querySelector(".video-container");
 
       videoElement.addEventListener("play", () => {
         const canvas = document.createElement("canvas");
