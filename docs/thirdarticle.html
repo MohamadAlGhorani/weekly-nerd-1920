@@ -63,7 +63,7 @@
       <p>Now create a script.js file in your project folder. Open this file to write some JavaScript. First, select the video element from the HTML.</p>
       <pre>
       <code>
-      const video = document.getElementById("video");
+      const videoElement = document.getElementById("video");
       </code>
       </pre>
       <p>Then you are going to load all the models, you have to promise all the models before starting the webcam.</p>
@@ -93,10 +93,10 @@
             webcamStream = stream;
             // show stream from the webcam on te
             // video element
-            video.srcObject = stream;
+            videoElement.srcObject = stream;
             // returns a Promise to indicate if
             // the video is playing
-            return video.play();
+            return videoElement.play();
           })
           .catch((e) => console.log("error: " + e));
       }
@@ -107,17 +107,17 @@
       <code>
       var videoContainer = document.querySelector(".video-container");
 
-      video.addEventListener("play", () => {
+      videoElement.addEventListener("play", () => {
         const canvas = document.createElement("canvas");
         videoContainer.append(canvas);
         const displaySize = {
-          width: video.width,
-          height: video.height,
+          width: videoElement.width,
+          height: videoElement.height,
         };
         faceapi.matchDimensions(canvas, displaySize);
         setInterval(async () => {
           const detections = await faceapi
-            .detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
+            .detectAllFaces(videoElement, new faceapi.TinyFaceDetectorOptions())
             .withFaceLandmarks()
             .withFaceExpressions()
             .withAgeAndGender();

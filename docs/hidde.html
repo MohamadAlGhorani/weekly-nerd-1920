@@ -27,26 +27,26 @@
     <img src="images/muller-brockmann.png" alt="book about grid from Muller-brockmann">
     <p>Something that we see the great graphic designers do a lot, is to use mathematical proportions to lay things out. Both flexbox and Grid Layout let us do this. Neither is better than the other. Flexbox lets us layout things from items, Grid Layout from the container.</p>
     <pre>
-      <code>
-      .container{ 
-        display: flex; 
-      }
-      .item-1{
-        flex: 2;
-      } 
-      .item-2 {
-        flex: 1;
-      }
-      </code>
+    <code>
+    .container{ 
+      display: flex; 
+    }
+    .item-1{
+      flex: 2;
+    } 
+    .item-2 {
+      flex: 1;
+    }
+    </code>
     </pre>
     <img src="images/flexbox.png" alt="flexbox example">
     <pre>
-      <code>
-        .container{
-          display: grid; 
-          grid-template-columns: 1fr, 3fr, 2fr, 1fr;.
-        }
-      </code>
+    <code>
+    .container{
+      display: grid; 
+      grid-template-columns: 1fr, 3fr, 2fr, 1fr;.
+    }
+    </code>
     </pre>
     <img src="images/grid.png" alt="grid example">
     <h3>Take away</h3>
@@ -54,43 +54,47 @@
       <li>
         Leave maths to the browser.<br>
         For examples: <br>
-        <pre>
-          <code>
-          .container{ 
-            display: flex; 
-          }
-          .item-1{
-            flex: 2;
-          } 
-          .item-2 {
-            flex: 1;
-          }
-          </code>
-        </pre>
-        <pre>
-          <code>
-            .container{
-              display: grid; 
-              grid-template-columns: 1fr, 3fr, 2fr, 1fr;.
-            }
-          </code>
-        </pre>
       </li>
+    </ul>
+    <pre>
+    <code>
+    .container{ 
+      display: flex; 
+    }
+    .item-1{
+      flex: 2;
+    } 
+    .item-2 {
+      flex: 1;
+    }
+    </code>
+    </pre>
+    <pre>
+    <code>
+    .container{
+      display: grid; 
+      grid-template-columns: 1fr, 3fr, 2fr, 1fr;.
+    }
+    </code>
+    </pre>
+    <ul>
       <li>Use vh  and vw units so you can design for each device screen.</li>
       <li>Use z-index to overlap the content.</li>
       <li>
         Check of the browser supports grid
-        <pre>
-          <code> 
-            @supports(display: grid){
-                body {
-                      display: grid
-                }
-              }                 
-          </code>
-        </pre>
         don't forget to write a fallback style for the browser that does not supports grid and your fallback has to be as simple as possible
       </li>
+    </ul>
+    <pre>
+    <code> 
+    @supports(display: grid){
+        body {
+              display: grid
+        }
+      }                 
+    </code>
+    </pre>
+    <ul>
       <li>Consulting is better than having bugs.</li>
       <li>Stick to the standards of the web.</li>
       <li>
